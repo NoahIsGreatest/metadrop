@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <title>MetaDrop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+    <h1>MetaDrop</h1>
+    <p>Upload → Scan → Download</p>
+    <input type="file" id="fileInput">
+    <div class="progress">
+        <div class="bar" id="progressBar"></div>
+    </div>
+
+    <div id="result"></div>
+    <a href="https://www.paypal.com/paypalme/LeunexOfficial" 
+        target="_blank" 
+        class="donate-btn">
+        ❤️ Support MetaDrop
+    </a>
+    <p class="hint">⚠️ File auto-deletes after 15 minutes</p>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
