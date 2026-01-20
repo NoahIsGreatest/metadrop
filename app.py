@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory, url_for
 from werkzeug.utils import secure_filename
+from werkzeug.middleware.proxy_fix import ProxyFix
 import os, uuid, time, threading, qrcode
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 UPLOAD_FOLDER = 'uploads'
 QR_FOLDER = 'qrcodes'
@@ -78,3 +80,4 @@ def get_qr(filename):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
