@@ -70,6 +70,10 @@ def upload_file():
 
 @app.route('/download/<filename>')
 def download_file(filename):
+    file_path = os.path.join(UPLOAD_FOLDER, filename)
+
+    if not os.path.exists(file_path):
+        return "File expired or deleted :(", 404
     return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
 
 
@@ -80,4 +84,5 @@ def get_qr(filename):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
