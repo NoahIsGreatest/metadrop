@@ -81,8 +81,13 @@ def download_file(filename):
 def get_qr(filename):
     return send_from_directory(QR_FOLDER, filename)
 
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('.', 'robots.txt')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
