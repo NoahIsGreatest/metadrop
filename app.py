@@ -85,9 +85,16 @@ def get_qr(filename):
 def robots():
     return send_from_directory('.', 'robots.txt')
 
+@app.after_request
+def add_header(response):
+    response.headers["X-Robots-Tag"] = "index, follow"
+    return response
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
